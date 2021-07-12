@@ -543,7 +543,7 @@ export abstract class PaginationEmbed<Element> extends EventEmitter {
     const clientMessage = this.clientAssets.message;
 
     try {
-      const responses = await clientMessage.awaitReactions(filter, { max: 1, time: this.timeout, errors: [ 'time' ] });
+      const responses = await clientMessage.awaitReactions({ filter, max: 1, time: this.timeout, errors: [ 'time' ] });
       const response = responses.first();
       const user = response.users.cache.last();
       const emoji = [ response.emoji.name, response.emoji.id ];
