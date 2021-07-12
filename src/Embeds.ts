@@ -162,10 +162,8 @@ export class Embeds extends PaginationEmbed<MessageEmbed> {
     for (const [ i, v ] of array.entries())
       if (Boolean(v) && v.constructor === Object && Object.keys(v).length)
         array[i] = new MessageEmbed(v);
-      else if (v instanceof MessageEmbed)
-        continue;
       else
-        throw new TypeError(`(MessageEmbeds[${i}]) Cannot invoke Embeds class with an invalid MessageEmbed instance.`);
+        continue;
 
     this.array = array;
 
